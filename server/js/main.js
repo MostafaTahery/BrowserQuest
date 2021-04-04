@@ -83,6 +83,7 @@ function main(config) {
         metrics.updateWorldDistribution(getWorldDistribution(worlds));
     };
 
+    //attempt to make a new world in case of error
     _.each(_.range(config.nb_worlds), function(i) {
         var world = new WorldServer('world'+ (i+1), config.nb_players_per_world, server, databaseHandler);
         world.run(config.map_filepath);
